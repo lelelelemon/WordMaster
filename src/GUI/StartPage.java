@@ -61,28 +61,24 @@ public class StartPage{
         });
 		//点击背单词，转到背诵页面，开始背单词
 		start.addActionListener(new ActionListener() {
-			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				new RecitePage();
 			}	
 		});
 		//点击设置，转到设置页面，进行设置
 		set.addActionListener(new ActionListener() {
-			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				new SettingPage();
 			}	
 		});
 		//点击统计数据，转到查询页面，查询背诵情况
 		query.addActionListener(new ActionListener() {
-			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				new QueryPage();
 			}	
 		});
 		//点击退出按钮，程序退出
 		exit.addActionListener(new ActionListener() {
-			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				System.exit(0);
 			}	
