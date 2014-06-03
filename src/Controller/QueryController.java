@@ -6,5 +6,5 @@ public interface QueryController {
 	public int getRecitedWordNum(String libName);//根据词库名获取词库中已背单词数
 	public int getRightWordNum(String libname);//根据词库名获取词库中背诵的正确单词数
 	public int getWrongWordNum(String libname);//根据词库名获取词库背诵的错误单词数
-	public int getRightRate(String libname);//根据词库名获取词库背诵正确率
+	public double getRightRate(String libname);//根据词库名获取词库背诵正确率
 }
