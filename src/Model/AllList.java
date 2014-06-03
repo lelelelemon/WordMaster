@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class AllList {
 	private ArrayList<WordList> wordLists;
-	private int right;
-	private int recite; // the recited words 
+	private int right = 0;
+	private int recite = 0; // the recited words 
 	private int total; // denote the total number of words 
 
 	public AllList() {
@@ -88,17 +88,17 @@ public class AllList {
 
 	// get through the arraylist and choose the word recited and return an
 	// arraylist of recited wordlist
-	ArrayList<WordList> calculateRecite() {
-		ArrayList<WordList> recitedList = new ArrayList<WordList>();
+	void calculateRecite() {
+		//ArrayList<WordList> recitedList = new ArrayList<WordList>();
 		for (int i = 0; i < wordLists.size(); i++) {
 			WordList wordList = wordLists.get(i);
 			if (wordList.getRecite() > 0) {
 				recite += wordList.getRecite();
-				recitedList.add(wordList);
+				//recitedList.add(wordList);
 			}
 
 		}
-		return recitedList;
+		//return recitedList;
 	}
 
 	// get through the arraylist and choose the word right
