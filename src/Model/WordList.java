@@ -102,10 +102,7 @@ public class WordList {
 		this.size++;
 	}
 
-	WordList readWordList() {
-		IO io = new IO();
-		return io.read(fileName);
-	}
+
 
 	void writeWordList() {
 		IO io = new IO();

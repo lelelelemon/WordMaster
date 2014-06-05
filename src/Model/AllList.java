@@ -37,11 +37,11 @@ public class AllList {
 
 	// initialze from the exist file
 	void initialize(int number) {
-		wordLists = new ArrayList<WordList>(number);
 		IO io = new IO();
 		for (int i = 0; i < number; i++) {
-			WordList wordList = new WordList().readWordList();
-			wordLists.set(i, wordList);
+			String filename = i + ".txt";
+			WordList wordList = io.read(filename);
+			this.addWordList(wordList);
 		}
 		calculateTotal();
 		calculateRight();

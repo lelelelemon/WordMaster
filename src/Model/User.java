@@ -36,6 +36,10 @@ public class User {
 		 * ArrayList<Word> allWords = read(filename); 
 		 * 2.initialize the alllist
 		 */
+		IO io = new IO();
+		ArrayList<Word> allWords = io.readFirst(filename); 
+		this.alllist = new AllList();
+		alllist.initializeFirst(number, allWords);
 		this.first = false;
 
 	}
@@ -44,6 +48,8 @@ public class User {
 		/*
 		read from each corresponding file to construct the alllist
 		 */
+		this.alllist = new AllList();
+		alllist.initialize(number);
 
 	}
 
