@@ -85,6 +85,7 @@ public class Word {
 	void setWordList(int wordList) {
 		this.wordList = wordList;
 	}
+	
 	// a/A 0
 	int charToInt(char a){
 		String s =""+ a;

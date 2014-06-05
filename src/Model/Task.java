@@ -108,11 +108,17 @@ public class Task {
 		
 		return true;
 	}
+	
 	// check the number is legal or not
 	boolean checkNumber(){
 		int size = wordList.getSize();
-		return start + total >= size;
+		if(start + total <= size)
+		{
+			return true;
+		}
+		return false;
 	}
+	
 	// point to next word
 	void next(){
 		curWord = wordList.getCurWord(curWord.getOffset() + 1);
