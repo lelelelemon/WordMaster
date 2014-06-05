@@ -7,14 +7,14 @@ import javax.swing.*;
 
 //软件开始界面
 public class StartPage{
-	JFrame frame;
-	JPanel northPanel;
-	JPanel southPanel;
-	JLabel label;//图标
-	JButton start;//开始背单词
-	JButton set;//设置
-	JButton query;//查询背诵情况
-	JButton exit;//退出
+	private JFrame frame;
+	private JPanel northPanel;
+	private JPanel southPanel;
+	private JLabel label;//图标
+	private JButton start;//开始背单词
+	private JButton set;//设置
+	private JButton query;//查询背诵情况
+	private JButton exit;//退出
 
 	//主方法，程序执行入口
 	public static void main(String[] args){
