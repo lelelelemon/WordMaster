@@ -89,7 +89,7 @@ public class User {
 
 	// find the word with the specific english within the alllist
 	Word search(String english) {
-		char firstChar = english.charAt(0);
+		char firstChar = english.toLowerCase().charAt(0);
 		int seq = firstChar -'a';
 		WordList wordlist = alllist.getWordList(seq);
 		for(int i = 0; i < wordlist.getSize();i++)
@@ -99,7 +99,8 @@ public class User {
 				return wordlist.getCurWord(i);
 			}
 		}
-		return null;
+		// no word match the input, set the start from the beginning of curlist
+		return wordlist.getCurWord(0);
 	}
 	
 	// get the current recite word
@@ -108,6 +109,7 @@ public class User {
 		word = this.alllist.getWordList(curList).getCurWord(offset);
 		return word;
 	}
+	
 	// return alllist
 	AllList getAllList(){
 		return this.alllist;

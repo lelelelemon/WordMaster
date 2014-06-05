@@ -48,6 +48,7 @@ public class WordList {
 
 	void setWordList(int wordList) {
 		this.wordList = wordList;
+		this.fileName = wordList + ".txt";
 	}
 
 	void setOffset(int offset) {
@@ -62,7 +63,7 @@ public class WordList {
 		this.right = right;
 	}
 
-	void setrecite(int recite) {
+	void setRecite(int recite) {
 		this.recite = recite;
 	}
 
@@ -70,6 +71,7 @@ public class WordList {
 	// arraylist of all the recited words;
    void calculateRecite() {
 		//ArrayList<Word> recitedWords = new ArrayList<Word>();
+	   recite=0;
 		for (int i = 0; i < words.size(); i++) {
 			Word word = words.get(i);
 			if (word.getTotal() > 0) {
@@ -83,6 +85,7 @@ public class WordList {
 
 	// get through the arraylist and choose the word recited
 	void calculateRight() {
+		right=0;
 		for (int i = 0; i < words.size(); i++) {
 			Word word = words.get(i);
 			if (word.getRight() > 0) {

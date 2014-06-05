@@ -21,4 +21,5 @@ public interface InterfaceOfAllList {
 	void addWordList(WordList wordList);
 	void addWord(Word word);
 	WordList getWordList(int i);
+	int [] getRecord(int wordlist);
 }

@@ -62,7 +62,7 @@ public class Word {
 		return this.wordList;
 	}
 
-	void setEnglish(String englsih) {
+	void setEnglish(String english) {
 		this.english = english;
 	}
 
@@ -85,8 +85,12 @@ public class Word {
 	void setWordList(int wordList) {
 		this.wordList = wordList;
 	}
+	
 	// a/A 0
 	int charToInt(char a){
+		String s =""+ a;
+		s = s.toLowerCase();
+		a = s.charAt(0);
 		return a-'a';
 	}
 	
@@ -110,11 +114,11 @@ public class Word {
 	
 	public boolean equals(Object b){
 		Word word = (Word) b;
-		if	(!word.getChinese().equals(chinese))
+		if	(!word.getChinese().equals(this.chinese))
 			return false;
-		if (!word.getEnglsh().equals(english))
+		if (!word.getEnglsh().equals(this.english))
 			return false;
-		if (!(word.getWordList()==wordList))
+		if (!(word.getWordList()==this.wordList))
 			return false;
 		return true;
 		
