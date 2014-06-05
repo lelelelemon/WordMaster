@@ -108,7 +108,10 @@ public class User {
 		word = this.alllist.getWordList(curList).getCurWord(offset);
 		return word;
 	}
-	
+	// return alllist
+	AllList getAllList(){
+		return this.alllist;
+	}
 	
 	
 }

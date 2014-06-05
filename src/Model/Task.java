@@ -8,6 +8,15 @@ public class Task {
 	private int start;
 	private Word curWord;
 	private String text; //user input
+	public Task(){
+		
+	}
+	// Initialize the task use give wordlis, start and number;
+	public Task(WordList wordlist, int start, int number){
+		this.wordList = wordList;
+		this.start = start;
+		this.total = number;		
+	}
 	
 	int getRight()
 	{
@@ -99,7 +108,11 @@ public class Task {
 		
 		return true;
 	}
-	
+	// check the number is legal or not
+	boolean checkNumber(){
+		int size = wordList.getSize();
+		return start + total >= size;
+	}
 	// point to next word
 	void next(){
 		curWord = wordList.getCurWord(curWord.getOffset() + 1);
