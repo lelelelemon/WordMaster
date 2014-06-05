@@ -1,10 +1,12 @@
-package GUI;
+package GUI.Query;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
+
+import GUI.Gui;
 
 //查询页面，查询背诵情况，可选显示形式：表格，饼图，柱状图
 public class QueryPage{

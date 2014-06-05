@@ -1,9 +1,13 @@
-package GUI;
+package GUI.Start;
 
 import java.awt.*;
 import java.awt.event.*;
 
 import javax.swing.*;
+
+import GUI.Query.QueryPage;
+import GUI.Recite.RecitePage;
+import GUI.Setting.SettingPage;
 
 //软件开始界面
 public class StartPage{
