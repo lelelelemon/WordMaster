@@ -15,7 +15,9 @@ public class Task {
 	public Task(WordList wordlist, int start, int number){
 		this.wordList = wordList;
 		this.start = start;
-		this.total = number;		
+		this.total = number;
+		if(checkNumber() != 0)
+			this.total = checkNumber();
 	}
 	
 	int getRight()
@@ -108,14 +110,20 @@ public class Task {
 		
 		return true;
 	}
-	// check the number is legal or not
-	boolean checkNumber(){
+	// check the number is legal or not, if legal return 0, else return the max number you can recite
+	int checkNumber(){
 		int size = wordList.getSize();
-		return start + total >= size;
+		if(start + total >= size)
+			return 0;
+		return total - start;
+		
 	}
 	// point to next word
 	void next(){
 		curWord = wordList.getCurWord(curWord.getOffset() + 1);
 	}
-	
+	// get the remaining word
+	int getRemain(){
+		return total - recite;
+	}
 }

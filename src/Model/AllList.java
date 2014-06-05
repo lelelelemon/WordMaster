@@ -126,4 +126,9 @@ public class AllList {
 	WordList getWordList(int i) {
 		return this.wordLists.get(i);
 	}
+	// get the record array.
+	int[] getRecord(int wordList){
+		int result[] = {this.total, this.recite, this.right};
+		return result;
+	}
 }
