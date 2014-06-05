@@ -68,16 +68,16 @@ public class WordList {
 
 	// get through the arraylist and choose the word recited and return the
 	// arraylist of all the recited words;
-	ArrayList<Word> calculateRecite() {
-		ArrayList<Word> recitedWords = new ArrayList<Word>();
+   void calculateRecite() {
+		//ArrayList<Word> recitedWords = new ArrayList<Word>();
 		for (int i = 0; i < words.size(); i++) {
 			Word word = words.get(i);
 			if (word.getTotal() > 0) {
 				recite++;
-				recitedWords.add(word);
+				//recitedWords.add(word);
 			}
 		}
-		return recitedWords;
+		//return recitedWords;
 
 	}
 
@@ -116,5 +116,24 @@ public class WordList {
 	// get current word
 	Word getCurWord(int i){
 		return this.words.get(i);
+	}
+	
+	public boolean equals(Object b){
+		WordList wordList = (WordList)b;
+		if	(!(wordList.getOffset()==offset))
+			return false;
+		if (!(wordList.getRecite()==recite))
+			return false;
+		if (!(wordList.getRight()==right))
+			return false;
+		if (!(wordList.getSize()==size))
+			return false;
+		if (!(wordList.getWordList()==this.wordList))
+			return false;
+		for (int i=0; i<size; i++){
+			if (!(wordList.getCurWord(i).equals(getCurWord(i))))
+				return false;
+		}
+		return true;
 	}
 }
