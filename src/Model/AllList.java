@@ -128,7 +128,18 @@ public class AllList {
 	}
 	// get the record array.
 	int[] getRecord(int wordList){
-		int result[] = {this.total, this.recite, this.right};
+		int[] result = new int[3];
+		if(wordList == -1){
+			result[0] = this.total;
+			result[1] = this.recite;
+			result[2] = this.right;
+		}
+		else{
+			WordList list = this.getWordList(wordList);
+			result[0] = list.getSize();
+			result[1] = list.getRecite();
+			result[2] = list.getRight();
+		}
 		return result;
 	}
 }
