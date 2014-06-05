@@ -69,7 +69,6 @@ public class QueryPage{
 		//添加事件
 		//点击确认,判断词库名是否符合格式，不符合则提示，符合则根据用户输入显示统计数据
 		confirm.addActionListener(new ActionListener() {
-			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				String name;
 				String type="";
@@ -107,7 +106,6 @@ public class QueryPage{
 		});
 		//点击取消，窗口关闭
 		exit.addActionListener(new ActionListener() {
-			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				frame.dispose();
 			}	
