@@ -21,7 +21,7 @@ public class IO {
 			while ((line=br.readLine())!=null){
 				String[] buf = line.split(" ");
 				char startChar =  buf[0].toLowerCase().charAt(0);			
-				int wordlist =startChar-'a'+1;
+				int wordlist =startChar-'a';
 				Word word = new Word(buf[0],buf[1],wordlist);
 				arrayList.add(word);
 			}
@@ -60,11 +60,11 @@ public class IO {
 				wordList.setOffset(offset);
 				//wordList.setSize(size);
 				wordList.setRight(right);
-				wordList.setrecite(recite);
+				wordList.setRecite(recite);
 			}
 			while ((line=br.readLine())!=null){
 				String[] buf = line.split(" ");
-				int wordlist = buf[0].charAt(0)-'a'+1;
+				int wordlist = buf[0].toLowerCase().charAt(0)-'a';
 				int right = Integer.parseInt(buf[2]);
 				int total = Integer.parseInt(buf[3]);
 				Word word = new Word(buf[0],buf[1],wordlist,count);

@@ -89,7 +89,7 @@ public class User {
 
 	// find the word with the specific english within the alllist
 	Word search(String english) {
-		char firstChar = english.charAt(0);
+		char firstChar = english.toLowerCase().charAt(0);
 		int seq = firstChar -'a';
 		WordList wordlist = alllist.getWordList(seq);
 		for(int i = 0; i < wordlist.getSize();i++)

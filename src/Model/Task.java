@@ -81,7 +81,7 @@ public class Task {
 		
 		if(curWord.getTotal()<1)
 		{
-			wordList.setrecite(wordList.getRecite()+1);
+			wordList.setRecite(wordList.getRecite()+1);
 		}
 		if(checkRight())
 		{
