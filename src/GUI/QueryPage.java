@@ -27,6 +27,7 @@ public class QueryPage{
 		
 		//初始化输入框
 		libname = new JTextField();
+		libname.setText("a");
 		
 		//初始化单选框
 		form = new JRadioButton("表格");
@@ -93,7 +94,7 @@ public class QueryPage{
 					}else if(name.charAt(0)<'a' || name.charAt(0)>'z'){
 						throw new Exception("词库名应为a-z！");
 					}
-					new Gui(name,type); 
+					new Gui().getChart(name, type);; 
 				} catch (Exception ex) {
 					if(ex.getMessage().equals("String index out of range: 0")){
 						JOptionPane.showMessageDialog(frame, "词库名不得为空！",
