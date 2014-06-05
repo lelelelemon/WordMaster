@@ -1,6 +1,8 @@
 package GUI;
 
 public class Gui {
+	public Gui(String libname,String type){
+	}
 	// drawBar(int one, int total)
 	// drawPie(int one, int total)
 	/*
