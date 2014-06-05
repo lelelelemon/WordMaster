@@ -99,7 +99,8 @@ public class User {
 				return wordlist.getCurWord(i);
 			}
 		}
-		return null;
+		// no word match the input, set the start from the beginning of curlist
+		return wordlist.getCurWord(0);
 	}
 	
 	// get the current recite word
