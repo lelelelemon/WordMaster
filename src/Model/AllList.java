@@ -37,11 +37,11 @@ public class AllList {
 
 	// initialze from the exist file
 	void initialize(int number) {
-		wordLists = new ArrayList<WordList>(number);
 		IO io = new IO();
 		for (int i = 0; i < number; i++) {
-			WordList wordList = new WordList().readWordList();
-			wordLists.set(i, wordList);
+			String filename = i + ".txt";
+			WordList wordList = io.read(filename);
+			this.addWordList(wordList);
 		}
 		calculateTotal();
 		calculateRight();
@@ -125,5 +125,21 @@ public class AllList {
 	// get the ith wordList
 	WordList getWordList(int i) {
 		return this.wordLists.get(i);
+	}
+	// get the record array.
+	int[] getRecord(int wordList){
+		int[] result = new int[3];
+		if(wordList == -1){
+			result[0] = this.total;
+			result[1] = this.recite;
+			result[2] = this.right;
+		}
+		else{
+			WordList list = this.getWordList(wordList);
+			result[0] = list.getSize();
+			result[1] = list.getRecite();
+			result[2] = list.getRight();
+		}
+		return result;
 	}
 }

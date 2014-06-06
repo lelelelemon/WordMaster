@@ -36,6 +36,10 @@ public class User {
 		 * ArrayList<Word> allWords = read(filename); 
 		 * 2.initialize the alllist
 		 */
+		IO io = new IO();
+		ArrayList<Word> allWords = io.readFirst(filename); 
+		this.alllist = new AllList();
+		alllist.initializeFirst(number, allWords);
 		this.first = false;
 
 	}
@@ -44,6 +48,8 @@ public class User {
 		/*
 		read from each corresponding file to construct the alllist
 		 */
+		this.alllist = new AllList();
+		alllist.initialize(number);
 
 	}
 
@@ -89,7 +95,7 @@ public class User {
 
 	// find the word with the specific english within the alllist
 	Word search(String english) {
-		char firstChar = english.charAt(0);
+		char firstChar = english.toLowerCase().charAt(0);
 		int seq = firstChar -'a';
 		WordList wordlist = alllist.getWordList(seq);
 		for(int i = 0; i < wordlist.getSize();i++)
@@ -99,7 +105,8 @@ public class User {
 				return wordlist.getCurWord(i);
 			}
 		}
-		return null;
+		// no word match the input, set the start from the beginning of curlist
+		return wordlist.getCurWord(0);
 	}
 	
 	// get the current recite word
@@ -109,6 +116,10 @@ public class User {
 		return word;
 	}
 	
+	// return alllist
+	AllList getAllList(){
+		return this.alllist;
+	}
 	
 	
 }
