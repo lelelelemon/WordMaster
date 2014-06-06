@@ -48,6 +48,7 @@ public class WordList {
 
 	void setWordList(int wordList) {
 		this.wordList = wordList;
+		this.fileName = wordList + ".txt";
 	}
 
 	void setOffset(int offset) {
@@ -62,27 +63,29 @@ public class WordList {
 		this.right = right;
 	}
 
-	void setrecite(int recite) {
+	void setRecite(int recite) {
 		this.recite = recite;
 	}
 
 	// get through the arraylist and choose the word recited and return the
 	// arraylist of all the recited words;
-	ArrayList<Word> calculateRecite() {
-		ArrayList<Word> recitedWords = new ArrayList<Word>();
+   void calculateRecite() {
+		//ArrayList<Word> recitedWords = new ArrayList<Word>();
+	   recite=0;
 		for (int i = 0; i < words.size(); i++) {
 			Word word = words.get(i);
 			if (word.getTotal() > 0) {
 				recite++;
-				recitedWords.add(word);
+				//recitedWords.add(word);
 			}
 		}
-		return recitedWords;
+		//return recitedWords;
 
 	}
 
 	// get through the arraylist and choose the word recited
 	void calculateRight() {
+		right=0;
 		for (int i = 0; i < words.size(); i++) {
 			Word word = words.get(i);
 			if (word.getRight() > 0) {
@@ -99,10 +102,7 @@ public class WordList {
 		this.size++;
 	}
 
-	WordList readWordList() {
-		IO io = new IO();
-		return io.read(fileName);
-	}
+
 
 	void writeWordList() {
 		IO io = new IO();
@@ -116,5 +116,24 @@ public class WordList {
 	// get current word
 	Word getCurWord(int i){
 		return this.words.get(i);
+	}
+	
+	public boolean equals(Object b){
+		WordList wordList = (WordList)b;
+		if	(!(wordList.getOffset()==offset))
+			return false;
+		if (!(wordList.getRecite()==recite))
+			return false;
+		if (!(wordList.getRight()==right))
+			return false;
+		if (!(wordList.getSize()==size))
+			return false;
+		if (!(wordList.getWordList()==this.wordList))
+			return false;
+		for (int i=0; i<size; i++){
+			if (!(wordList.getCurWord(i).equals(getCurWord(i))))
+				return false;
+		}
+		return true;
 	}
 }

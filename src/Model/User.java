@@ -10,7 +10,7 @@ public class User {
 	private int number; // denote the number of words user choose to recite
 	private String username;
 	private String password;
-	private static boolean first;// remeber whether the first to
+	private static boolean first = true;// remeber whether the first to
 
 	public User() {
 
@@ -36,7 +36,11 @@ public class User {
 		 * ArrayList<Word> allWords = read(filename); 
 		 * 2.initialize the alllist
 		 */
-		
+		IO io = new IO();
+		ArrayList<Word> allWords = io.readFirst(filename); 
+		this.alllist = new AllList();
+		alllist.initializeFirst(number, allWords);
+		this.first = false;
 
 	}
 	// not first use
@@ -44,6 +48,8 @@ public class User {
 		/*
 		read from each corresponding file to construct the alllist
 		 */
+		this.alllist = new AllList();
+		alllist.initialize(number);
 
 	}
 
@@ -78,23 +84,42 @@ public class User {
 
 	// judge the number user chooser to recite is legal or not
 	boolean judgeNumber(int number) {
+		int total = this.alllist.getWordList(curList).getSize();
+		if((total - start + 1) > number)
+		{
+			return true;
+		}
 
 		return false;
 	}
 
 	// find the word with the specific english within the alllist
 	Word search(String english) {
-		return null;
+		char firstChar = english.toLowerCase().charAt(0);
+		int seq = firstChar -'a';
+		WordList wordlist = alllist.getWordList(seq);
+		for(int i = 0; i < wordlist.getSize();i++)
+		{
+			if(english.equals(wordlist.getCurWord(i).getEnglsh()))
+			{
+				return wordlist.getCurWord(i);
+			}
+		}
+		// no word match the input, set the start from the beginning of curlist
+		return wordlist.getCurWord(0);
 	}
+	
 	// get the current recite word
 	Word getCurWord(){
 		Word word = new Word();
 		word = this.alllist.getWordList(curList).getCurWord(offset);
 		return word;
 	}
-	// recite word
-	void Recite(String english){
-		Word word = this.getCurWord();
+	
+	// return alllist
+	AllList getAllList(){
+		return this.alllist;
 	}
+	
 	
 }
