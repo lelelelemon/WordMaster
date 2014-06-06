@@ -7,7 +7,8 @@ import javax.swing.*;
 
 import GUI.Query.QueryPage;
 import GUI.Recite.RecitePage;
-import GUI.Setting.SettingPage;
+import GUI.Set.SettingPage;
+import Model.*;
 
 //软件开始界面
 public class StartPage{
@@ -19,13 +20,15 @@ public class StartPage{
 	private JButton set;//设置
 	private JButton query;//查询背诵情况
 	private JButton exit;//退出
+	private User user;
 
 	//主方法，程序执行入口
 	public static void main(String[] args){
-		new StartPage();
+		new StartPage(new User(26,"dictionnary.txt"));
 	}
 	
-	public StartPage() {
+	public StartPage(User user) {
+		this.user = user;
 		//初始化按鈕及图标
 		label = new JLabel(new ImageIcon("picture/icon.jpg"));
 		start = new JButton("背单词");
