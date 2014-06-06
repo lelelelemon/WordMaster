@@ -20,6 +20,6 @@ public interface InterfaceOfAllList {
 	void calculateRight();
 	void addWordList(WordList wordList);
 	void addWord(Word word);
-	WordList getWordList(int i);
+	InterfaceOfWordList getWordList(int i);
 	int [] getRecord(int wordlist);
 }

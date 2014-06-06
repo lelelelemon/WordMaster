@@ -3,6 +3,7 @@ package Model;
 import java.util.ArrayList;
 
 import InterfaceOfModel.InterfaceOfAllList;
+import InterfaceOfModel.InterfaceOfWordList;
 
 public class AllList implements InterfaceOfAllList{
 	private ArrayList<WordList> wordLists;
@@ -125,7 +126,7 @@ public class AllList implements InterfaceOfAllList{
 	}
 
 	// get the ith wordList
-	public WordList getWordList(int i) {
+	public InterfaceOfWordList getWordList(int i) {
 		return this.wordLists.get(i);
 	}
 	// get the record array.
@@ -137,7 +138,7 @@ public class AllList implements InterfaceOfAllList{
 			result[2] = this.right;
 		}
 		else{
-			WordList list = this.getWordList(wordList);
+			WordList list = (WordList) this.getWordList(wordList);
 			result[0] = list.getSize();
 			result[1] = list.getRecite();
 			result[2] = list.getRight();

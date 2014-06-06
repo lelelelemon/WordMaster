@@ -1,5 +1,7 @@
 package Controller;
 
+import java.math.BigDecimal;
+
 import InterfaceOfModel.InterfaceOfAllList;
 
 public class QueryControl implements QueryController {
@@ -11,32 +13,63 @@ public class QueryControl implements QueryController {
 	
 	@Override
 	public int getTotalWordNum(String libname) {
-		// TODO Auto-generated method stub
-		return 0;
+		int total = 0;
+		if(libname.equals("all")){
+			total = allList.getTotal();
+		}else{
+			total = allList.getWordList((int)(libname.charAt(0)-'a')).getSize();
+		}
+		return total;
 	}
 
 	@Override
 	public int getRecitedWordNum(String libname) {
-		// TODO Auto-generated method stub
-		return 0;
+		int recited = 0;
+		if(libname.equals("all")){
+			recited = allList.getRecite();
+		}else{
+			recited = allList.getWordList((int)(libname.charAt(0)-'a')).getRecite();
+		}
+		return recited;
 	}
 
 	@Override
 	public int getRightWordNum(String libname) {
-		// TODO Auto-generated method stub
-		return 0;
+		int right = 0;
+		if(libname.equals("all")){
+			right = allList.getRight();
+		}else{
+			right = allList.getWordList((int)(libname.charAt(0)-'a')).getRight();
+		}
+		return right;
 	}
 
 	@Override
 	public int getWrongWordNum(String libname) {
-		// TODO Auto-generated method stub
-		return 0;
+		int wrong = 0;
+		if(libname.equals("all")){
+			wrong = allList.getRecite() - allList.getRight();
+		}else{
+			wrong = allList.getWordList((int)(libname.charAt(0)-'a')).getRecite()-
+					allList.getWordList((int)(libname.charAt(0)-'a')).getRight();
+		}
+		return wrong;
 	}
 
 	@Override
 	public double getRightRate(String libname) {
-		// TODO Auto-generated method stub
-		return 0;
+		double rate = 0;
+		if(libname.equals("all")){
+			rate = (double)allList.getRight()/(double)allList.getRecite();
+		}else{
+			rate = (double)allList.getWordList((int)(libname.charAt(0)-'a')).getRight()/
+					(double)allList.getWordList((int)(libname.charAt(0)-'a')).getRecite();
+		}
+		
+		//Àƒ…·ŒÂ»Î
+		BigDecimal b = new BigDecimal(rate);
+		rate = b.setScale(4, BigDecimal.ROUND_HALF_UP).doubleValue();
+		return rate;
 	}
 
 }

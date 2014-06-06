@@ -99,7 +99,7 @@ public class User implements InterfaceOfUser{
 	public Word search(String english) {
 		char firstChar = english.toLowerCase().charAt(0);
 		int seq = firstChar -'a';
-		WordList wordlist = alllist.getWordList(seq);
+		WordList wordlist = (WordList) alllist.getWordList(seq);
 		for(int i = 0; i < wordlist.getSize();i++)
 		{
 			if(english.equals(wordlist.getCurWord(i).getEnglsh()))
