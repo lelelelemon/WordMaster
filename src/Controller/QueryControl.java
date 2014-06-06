@@ -1,7 +1,14 @@
 package Controller;
 
-public class QueryControl implements QueryController {
+import InterfaceOfModel.InterfaceOfAllList;
 
+public class QueryControl implements QueryController {
+	private InterfaceOfAllList allList;
+	
+	public QueryControl(InterfaceOfAllList allList){
+		this.allList = allList;
+	}
+	
 	@Override
 	public int getTotalWordNum(String libname) {
 		// TODO Auto-generated method stub

@@ -2,7 +2,9 @@ package Model;
 
 import java.util.ArrayList;
 
-public class AllList {
+import InterfaceOfModel.InterfaceOfAllList;
+
+public class AllList implements InterfaceOfAllList{
 	private ArrayList<WordList> wordLists;
 	private int right = 0;
 	private int recite = 0; // the recited words 
@@ -22,7 +24,7 @@ public class AllList {
 	}
 
 	// initialize from the allWords at the first use time
-	void initializeFirst(int number, ArrayList<Word> allWords) {
+	public void initializeFirst(int number, ArrayList<Word> allWords) {
 		// use allwords to construct wordLists
 		for (int i = 0; i < number; i++) {
 			WordList wordList = new WordList(i);
@@ -36,7 +38,7 @@ public class AllList {
 	}
 
 	// initialze from the exist file
-	void initialize(int number) {
+	public void initialize(int number) {
 		IO io = new IO();
 		for (int i = 0; i < number; i++) {
 			String filename = i + ".txt";
@@ -49,35 +51,35 @@ public class AllList {
 	}
 
 	// write every wordlist to corresponding file
-	void writeAllList(int number, AllList alllist) {
+	public void writeAllList(int number, AllList alllist) {
 		for (int i = 0; i < number; i++) {
 			// write to each document
 			alllist.wordLists.get(i).writeWordList();
 		}
 	}
 
-	int getRight() {
+	public int getRight() {
 		return right;
 	}
 
-	int getRecite() {
+	public int getRecite() {
 		return recite;
 	}
 
-	int getTotal() {
+	public int getTotal() {
 		return total;
 	}
 
-	void setRecite(int recite) {
+	public void setRecite(int recite) {
 		this.recite = recite;
 	}
 
-	void setTotal(int total) {
+	public void setTotal(int total) {
 		this.total = total;
 	}
 
 	// get through the arraylist and add the total number of words
-	void calculateTotal() {
+	public void calculateTotal() {
 		for (int i = 0; i < wordLists.size(); i++) {
 			WordList wordList = wordLists.get(i);
 			total += wordList.getSize();
@@ -88,7 +90,7 @@ public class AllList {
 
 	// get through the arraylist and choose the word recited and return an
 	// arraylist of recited wordlist
-	void calculateRecite() {
+	public void calculateRecite() {
 		//ArrayList<WordList> recitedList = new ArrayList<WordList>();
 		for (int i = 0; i < wordLists.size(); i++) {
 			WordList wordList = wordLists.get(i);
@@ -102,7 +104,7 @@ public class AllList {
 	}
 
 	// get through the arraylist and choose the word right
-	void calculateRight() {
+	public void calculateRight() {
 		for (int i = 0; i < wordLists.size(); i++) {
 			WordList wordList = wordLists.get(i);
 			right += wordList.getRight();
@@ -112,22 +114,22 @@ public class AllList {
 	}
 
 	// add a new wordList to the arraylist
-	void addWordList(WordList wordList) {
+	public void addWordList(WordList wordList) {
 		wordLists.add(wordList);
 	}
 
 	// add a new word to the arraylist
-	void addWord(Word word) {
+	public void addWord(Word word) {
 		int list = word.getWordList();
 		wordLists.get(list).addWord(word);
 	}
 
 	// get the ith wordList
-	WordList getWordList(int i) {
+	public WordList getWordList(int i) {
 		return this.wordLists.get(i);
 	}
 	// get the record array.
-	int[] getRecord(int wordList){
+	public int[] getRecord(int wordList){
 		int[] result = new int[3];
 		if(wordList == -1){
 			result[0] = this.total;

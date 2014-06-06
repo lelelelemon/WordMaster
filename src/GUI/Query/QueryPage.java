@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 import GUI.Gui;
+import InterfaceOfModel.InterfaceOfUser;
 
 //查询页面，查询背诵情况，可选显示形式：表格，饼图，柱状图
 public class QueryPage{
@@ -21,8 +22,9 @@ public class QueryPage{
 	private JRadioButton bar;//柱状图
 	private JButton confirm;//确认按钮
 	private JButton exit;
+	private InterfaceOfUser user;
 	
-	public QueryPage(){
+	public QueryPage(final InterfaceOfUser user){
 		//初始化标签
 		label1 = new JLabel("请输入词库名（字母a-z）：");
 		label2 = new JLabel("请选择统计数据的表现形式：");
@@ -96,7 +98,7 @@ public class QueryPage{
 					}else if(name.charAt(0)<'a' || name.charAt(0)>'z'){
 						throw new Exception("词库名应为a-z！");
 					}
-					new Gui().getChart(name, type);; 
+					new Gui(user).getChart(name, type);; 
 				} catch (Exception ex) {
 					if(ex.getMessage().equals("String index out of range: 0")){
 						JOptionPane.showMessageDialog(frame, "词库名不得为空！",

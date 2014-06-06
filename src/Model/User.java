@@ -2,7 +2,9 @@ package Model;
 
 import java.util.ArrayList;
 
-public class User {
+import InterfaceOfModel.InterfaceOfUser;
+
+public class User implements InterfaceOfUser{
 	private AllList alllist;
 	private int curList;// denote the list user choose
 	private int offset;// denote the offset of the recite 
@@ -54,36 +56,36 @@ public class User {
 	}
 
 
-	int getCurList() {
+	public int getCurList() {
 		return curList;
 	}
 
-	boolean getFirst() {
+	public boolean getFirst() {
 		return first;
 	}
 
-	int getStart() {
+	public int getStart() {
 		return start;
 	}
 
-	int getNumber() {
+	public int getNumber() {
 		return number;
 	}
 
-	void setCurList(int curList) {
+	public void setCurList(int curList) {
 		this.curList = curList;
 	}
 
-	void setStart(int start) {
+	public void setStart(int start) {
 		this.start = start;
 	}
 
-	void setNumber(int number) {
+	public void setNumber(int number) {
 		this.number = number;
 	}
 
 	// judge the number user chooser to recite is legal or not
-	boolean judgeNumber(int number) {
+	public boolean judgeNumber(int number) {
 		int total = this.alllist.getWordList(curList).getSize();
 		if((total - start + 1) > number)
 		{
@@ -94,7 +96,7 @@ public class User {
 	}
 
 	// find the word with the specific english within the alllist
-	Word search(String english) {
+	public Word search(String english) {
 		char firstChar = english.toLowerCase().charAt(0);
 		int seq = firstChar -'a';
 		WordList wordlist = alllist.getWordList(seq);
@@ -110,14 +112,14 @@ public class User {
 	}
 	
 	// get the current recite word
-	Word getCurWord(){
+	public Word getCurWord(){
 		Word word = new Word();
 		word = this.alllist.getWordList(curList).getCurWord(offset);
 		return word;
 	}
 	
 	// return alllist
-	AllList getAllList(){
+	public AllList getAllList(){
 		return this.alllist;
 	}
 	

@@ -8,6 +8,7 @@ import javax.swing.*;
 import GUI.Query.QueryPage;
 import GUI.Recite.RecitePage;
 import GUI.Set.SettingPage;
+import InterfaceOfModel.InterfaceOfUser;
 import Model.*;
 
 //软件开始界面
@@ -20,14 +21,14 @@ public class StartPage{
 	private JButton set;//设置
 	private JButton query;//查询背诵情况
 	private JButton exit;//退出
-	private User user;
+	private InterfaceOfUser user;
 
 	//主方法，程序执行入口
 	public static void main(String[] args){
 		new StartPage(new User(26,"dictionnary.txt"));
 	}
 	
-	public StartPage(User user) {
+	public StartPage(final InterfaceOfUser user) {
 		this.user = user;
 		//初始化按鈕及图标
 		label = new JLabel(new ImageIcon("picture/icon.jpg"));
@@ -81,7 +82,7 @@ public class StartPage{
 		//点击统计数据，转到查询页面，查询背诵情况
 		query.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				new QueryPage();
+				new QueryPage(user);
 			}	
 		});
 		//点击退出按钮，程序退出

@@ -2,7 +2,9 @@ package Model;
 
 import java.util.ArrayList;
 
-public class WordList {
+import InterfaceOfModel.InterfaceOfWordList;
+
+public class WordList implements InterfaceOfWordList{
 	private ArrayList<Word> words;
 	private int wordList;
 	private int offset = 0; // the offset of the word recited to
@@ -22,54 +24,54 @@ public class WordList {
 
 	}
 
-	int getWordList() {
+	public int getWordList() {
 		return this.wordList;
 	}
 
-	int getOffset() {
+	public int getOffset() {
 		return this.offset;
 	}
 
-	int getSize() {
+	public int getSize() {
 		return this.size;
 	}
 
-	int getRight() {
+	public int getRight() {
 		return this.right;
 	}
 
-	int getRecite() {
+	public int getRecite() {
 		return this.recite;
 	}
 
-	String getFileName() {
+	public String getFileName() {
 		return this.fileName;
 	}
 
-	void setWordList(int wordList) {
+	public void setWordList(int wordList) {
 		this.wordList = wordList;
 		this.fileName = wordList + ".txt";
 	}
 
-	void setOffset(int offset) {
+	public void setOffset(int offset) {
 		this.offset = offset;
 	}
 
-	void setSize(int size) {
+	public void setSize(int size) {
 		this.size = size;
 	}
 
-	void setRight(int right) {
+	public void setRight(int right) {
 		this.right = right;
 	}
 
-	void setRecite(int recite) {
+	public void setRecite(int recite) {
 		this.recite = recite;
 	}
 
 	// get through the arraylist and choose the word recited and return the
 	// arraylist of all the recited words;
-   void calculateRecite() {
+   public void calculateRecite() {
 		//ArrayList<Word> recitedWords = new ArrayList<Word>();
 	   recite=0;
 		for (int i = 0; i < words.size(); i++) {
@@ -84,7 +86,7 @@ public class WordList {
 	}
 
 	// get through the arraylist and choose the word recited
-	void calculateRight() {
+	public void calculateRight() {
 		right=0;
 		for (int i = 0; i < words.size(); i++) {
 			Word word = words.get(i);
@@ -96,7 +98,7 @@ public class WordList {
 	}
 
 	// add a new word to the arraylist
-	void addWord(Word word) {
+	public void addWord(Word word) {
 		words.add(word);
 		word.setOffset(size);
 		this.size++;
@@ -104,17 +106,17 @@ public class WordList {
 
 
 
-	void writeWordList() {
+	public void writeWordList() {
 		IO io = new IO();
 		io.writeWordList(this);
 	}
 	// get next word
-	Word getNextWord(){
+	public Word getNextWord(){
 		this.offset++;
 		return this.words.get(this.offset - 1);
 	}
 	// get current word
-	Word getCurWord(int i){
+	public Word getCurWord(int i){
 		return this.words.get(i);
 	}
 	
@@ -135,5 +137,9 @@ public class WordList {
 				return false;
 		}
 		return true;
+	}
+
+	public WordList readWordList() {
+		return this;
 	}
 }

@@ -1,6 +1,8 @@
 package Model;
 
-public class Word {
+import InterfaceOfModel.InterfaceOfWord;
+
+public class Word implements InterfaceOfWord{
 	private String english;
 	private String chinese;
 	private int right; // the number of right times
@@ -20,7 +22,7 @@ public class Word {
 		this.wordList = wordList;
 	}
 	
-	boolean isRight()
+	public boolean isRight()
 	{
 		if(this.right > 0)
 		{
@@ -38,74 +40,74 @@ public class Word {
 		this.wordList = wordList;
 	}
 
-	String getEnglsh() {
+	public String getEnglsh() {
 		return this.english;
 	}
 
-	String getChinese() {
+	public String getChinese() {
 		return this.chinese;
 	}
 
-	int getRight() {
+	public int getRight() {
 		return this.right;
 	}
 
-	int getTotal() {
+	public int getTotal() {
 		return this.total;
 	}
 
-	int getOffset() {
+	public int getOffset() {
 		return this.offset;
 	}
 
-	int getWordList() {
+	public int getWordList() {
 		return this.wordList;
 	}
 
-	void setEnglish(String english) {
+	public void setEnglish(String english) {
 		this.english = english;
 	}
 
-	void setChinese(String chinese) {
+	public void setChinese(String chinese) {
 		this.chinese = chinese;
 	}
 
-	void setRight(int right) {
+	public void setRight(int right) {
 		this.right = right;
 	}
 
-	void setTotal(int total) {
+	public void setTotal(int total) {
 		this.total = total;
 	}
 
-	void setOffset(int offset) {
+	public void setOffset(int offset) {
 		this.offset = offset;
 	}
 
-	void setWordList(int wordList) {
+	public void setWordList(int wordList) {
 		this.wordList = wordList;
 	}
 	
 	// a/A 0
-	int charToInt(char a){
+	public int charToInt(char a){
 		String s =""+ a;
 		s = s.toLowerCase();
 		a = s.charAt(0);
 		return a-'a';
 	}
 	
-	void addTotal()
+	public void addTotal()
 	{
 	     this.total++;
 	}
 	
-	void addRight()
+	public void addRight()
 	{
 		this.right++;
 	}
 	
 	// judge whether the word is right answered
-	boolean judge(String english){
+	public boolean judge(String english){
 		if(english.equals(this.english))
 			return true;
 		return false;

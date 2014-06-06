@@ -19,6 +19,8 @@ import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
 
 import Controller.*;
+import InterfaceOfModel.InterfaceOfAllList;
+import InterfaceOfModel.InterfaceOfUser;
 
 public class Gui {
 	private JFrame frame;
@@ -26,8 +28,9 @@ public class Gui {
 	private int screen_width;
 	private int screen_height;
 	
-	public Gui(){
-		statics = new QueryControl();
+	public Gui(InterfaceOfUser user){
+		InterfaceOfAllList allList = user.getAllList();
+		statics = new QueryControl(allList);
 		//初始化窗口
 		frame = new JFrame("WordMaster");
 		screen_width = Toolkit.getDefaultToolkit().getScreenSize().width;  
@@ -54,16 +57,16 @@ public class Gui {
 	//生成表格
 	private void getForm(String libname) {
 		//获取数据
-//		int total = statics.getTotalWordNum(libname); 
-//		int recited = statics.getRecitedWordNum(libname);
-//		int right = statics.getRightWordNum(libname);
-//		int wrong = statics.getWrongWordNum(libname);
-//		double rate = statics.getRightRate(libname);
-		int total = 50; 
-		int recited = 30;
-		int right = 20;
-		int wrong = 10;
-		double rate = 0.6667;
+		int total = statics.getTotalWordNum(libname); 
+		int recited = statics.getRecitedWordNum(libname);
+		int right = statics.getRightWordNum(libname);
+		int wrong = statics.getWrongWordNum(libname);
+		double rate = statics.getRightRate(libname);
+//		int total = 50; 
+//		int recited = 30;
+//		int right = 20;
+//		int wrong = 10;
+//		double rate = 0.6667;
 		
 		String percent = rate*100+"%";//转化正确率以百分数显示
 		
@@ -87,23 +90,23 @@ public class Gui {
 	private void getPie(String libname) {
 		//获取数据
 		//当前词库
-//		int total = statics.getTotalWordNum(libname); 
-//		int recited = statics.getRecitedWordNum(libname);
-//		int right = statics.getRightWordNum(libname);
-//		int wrong = statics.getWrongWordNum(libname);
+		int total = statics.getTotalWordNum(libname); 
+		int recited = statics.getRecitedWordNum(libname);
+		int right = statics.getRightWordNum(libname);
+		int wrong = statics.getWrongWordNum(libname);
 		//全部词库
-//		int alltotal = statics.getTotalWordNum("all"); 
-//		int allrecited = statics.getRecitedWordNum("all");
-//		int allright = statics.getRightWordNum("all");
-//		int allwrong = statics.getWrongWordNum("all");
-		int total = 50;
-		int recited = 30;
-		int right = 20;
-		int wrong = 10;
-		int alltotal = 1444;
-		int allrecited = 443;
-		int allright = 223;
-		int allwrong = 220;
+		int alltotal = statics.getTotalWordNum("all"); 
+		int allrecited = statics.getRecitedWordNum("all");
+		int allright = statics.getRightWordNum("all");
+		int allwrong = statics.getWrongWordNum("all");
+//		int total = 50;
+//		int recited = 30;
+//		int right = 20;
+//		int wrong = 10;
+//		int alltotal = 1444;
+//		int allrecited = 443;
+//		int allright = 223;
+//		int allwrong = 220;
 		
 		//饼图1：当前词库单词背诵情况
 		String piename1 = "词库" + libname + "单词背诵情况";
@@ -169,15 +172,15 @@ public class Gui {
 	private void getBar(String libname) {
 		//获取数据
 		//当前词库 
-//		int recited = statics.getRecitedWordNum(libname);
-//		double rate = statics.getRightRate(libname);
+		int recited = statics.getRecitedWordNum(libname);
+		double rate = statics.getRightRate(libname);
 		//全部词库
-//		int allrecited = statics.getRecitedWordNum("all");
-//		double allrate = statics.getRightRate("all");
-		int recited = 30;
-		double rate = 0.6667;
-		int allrecited = 440;
-		double allrate = 0.5000;
+		int allrecited = statics.getRecitedWordNum("all");
+		double allrate = statics.getRightRate("all");
+//		int recited = 30;
+//		double rate = 0.6667;
+//		int allrecited = 440;
+//		double allrate = 0.5000;
 		
 		//柱状图1：当前词库及全部词库已背单词数对比
 		String barname1 = "当前词库及全部词库已背单词数";

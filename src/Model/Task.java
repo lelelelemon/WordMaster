@@ -1,6 +1,8 @@
 package Model;
 
-public class Task {
+import InterfaceOfModel.InterfaceOfTask;
+
+public class Task implements InterfaceOfTask{
 	private WordList wordList;
 	private int total;
 	private int right;
@@ -21,47 +23,47 @@ public class Task {
 			this.total = size - start;
 	}
 	
-	int getRight()
+	public int getRight()
 	{
 		return this.right;
 	}
 	
-	int getRecite()
+	public int getRecite()
 	{
 		return this.recite;
 	}
 	
-	int getStart()
+	public int getStart()
 	{
 		return this.start;
 	}
 	
-	int getTotal(){
+	public int getTotal(){
 		
 		return this.total;
 		
 	}
 	// get the current word
-	Word getWord(){
+	public Word getWord(){
 		Word w = wordList.getCurWord(start + recite);
 		return w;
 	}
 	// get the current word's chinese 
-	String getChinese(){
+	public String getChinese(){
 		Word w = this.getWord();
 		String ch = w.getChinese();
 		return ch;
 	}
 	
 	// get the current word's english
-	String getEnglish(){
+	public String getEnglish(){
 		Word w = this.getWord();
 		String en =w.getEnglsh();
 		return en;
 	}
 	
 	// check whether the task is over  and also do update job here
-	boolean checkOver(){
+	public boolean checkOver(){
 		update();
 		if(recite == total)
 		{
@@ -74,7 +76,7 @@ public class Task {
 	}
 	
 	// check whether the meaning is right
-	boolean checkRight(){
+	public boolean checkRight(){
 		if(text.equals(curWord.getEnglsh()))
 		{
 		   return true;
@@ -86,7 +88,7 @@ public class Task {
 	}
 	
     // update the information
-	boolean update(){
+	public boolean update(){
 		//update task's attribute
 		recite++;
 		curWord.addTotal();
@@ -113,7 +115,7 @@ public class Task {
 	}
 	
 	// check the number is legal or not
-	boolean checkNumber(){
+	public boolean checkNumber(){
 		int size = wordList.getSize();
 		if(start + total <= size)
 		{
@@ -123,11 +125,11 @@ public class Task {
 	}
 	
 	// point to next word
-	void next(){
+	public void next(){
 		curWord = wordList.getCurWord(curWord.getOffset() + 1);
 	}
 	// get the remaining word
-	int getRemain(){
+	public int getRemain(){
 		return total - recite;
 	}
 }
