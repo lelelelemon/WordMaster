@@ -89,12 +89,14 @@ public class Task {
 	boolean update(){
 		//update task's attribute
 		recite++;
-		curWord.addTotal();
 		
 		if(curWord.getTotal()<1)
 		{
 			wordList.setRecite(wordList.getRecite()+1);
 		}
+		
+		curWord.addTotal();
+		
 		if(checkRight())
 		{
 			right++;
