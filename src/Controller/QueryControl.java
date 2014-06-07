@@ -59,9 +59,10 @@ public class QueryControl implements QueryController {
 	@Override
 	public double getRightRate(String libname) {
 		double rate = 0;
-		if(libname.equals("all")){
+		if(libname.equals("all") && (double)allList.getRecite() != 0){
 			rate = (double)allList.getRight()/(double)allList.getRecite();
-		}else{
+		}else if(!libname.equals("all") && 
+				allList.getWordList((int)(libname.charAt(0)-'a')).getRecite() != 0){
 			rate = (double)allList.getWordList((int)(libname.charAt(0)-'a')).getRight()/
 					(double)allList.getWordList((int)(libname.charAt(0)-'a')).getRecite();
 		}
