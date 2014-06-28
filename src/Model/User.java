@@ -20,8 +20,7 @@ public class User implements InterfaceOfUser{
 	public User(int number, String filename) {
 		File file = new File("0.txt");
 		if	(file.exists())
-			first = true;
-		
+			first = true;		
 		if(first)
 			initializeFirst(number, filename);
 		else

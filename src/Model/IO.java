@@ -16,12 +16,16 @@ import InterfaceOfModel.*;
 
 public class IO implements InterfaceOfIO{
 	// read all the word in to an arraylist of Word
+	
 	public ArrayList<InterfaceOfWord> readFirst(String filename){
+		
 		ArrayList<InterfaceOfWord> arrayList = new ArrayList<InterfaceOfWord>();
 		try{
 			FileInputStream fis = new FileInputStream(filename);
 			InputStreamReader isr = new InputStreamReader(fis, "UTF-8");
 			BufferedReader br = new BufferedReader(isr);
+			
+			
 			
 			String line="";
 			while ((line=br.readLine())!=null){
@@ -42,6 +46,8 @@ public class IO implements InterfaceOfIO{
 		return arrayList;
 	
 	}
+	
+
 	//  we can read from each correspoding file  such as 1.txt => wordlist A
 	public InterfaceOfWordList read(String filename) {
 		/* offset size right recite

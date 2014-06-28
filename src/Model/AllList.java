@@ -9,6 +9,7 @@ public class AllList implements InterfaceOfAllList{
 	private int right = 0;
 	private int recite = 0; // the recited words 
 	private int total; // denote the total number of words 
+	private String [] listName;
 
 	public AllList() {
 		wordLists = new ArrayList<WordList>();

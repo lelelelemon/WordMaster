@@ -25,7 +25,7 @@ public class StartPage{
 
 	//主方法，程序执行入口
 	public static void main(String[] args){
-		new StartPage(26,"dictionary.txt");
+		new StartPage(6,"dictionary.xml");
 	}
 	
 	public StartPage(final int libNum, final String address) {

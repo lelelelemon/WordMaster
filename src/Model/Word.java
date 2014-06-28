@@ -7,14 +7,14 @@ public class Word implements InterfaceOfWord{
 	private String chinese;
 	private int right; // the number of right times
 	private int total; // the number of total recite times
-	private int offset;// the offset in the wordlist
-	private int wordList;// in which wordList
-
+	private int[] offset;// the offset in the wordlist
+	private int[] wordList;// in which wordList
+	
 	public Word() {
 
 	}
 
-	public Word(String english, String chinese, int wordList) {
+	public Word(String english, String chinese, int[] wordList) {
 		this.english = english;
 		this.chinese = chinese;
 		this.right = 0;
@@ -31,7 +31,7 @@ public class Word implements InterfaceOfWord{
 		return false;
 	}
 	
-	public Word(String english, String chinese, int wordList, int offset) {
+	public Word(String english, String chinese, int wordList[], int[] offset) {
 		this.english = english;
 		this.chinese = chinese;
 		this.right = 0;
@@ -56,12 +56,12 @@ public class Word implements InterfaceOfWord{
 		return this.total;
 	}
 
-	public int getOffset() {
+	public int[] getOffset() {
 		return this.offset;
 	}
 
-	public int getWordList() {
-		this.wordList = this.english.toLowerCase().charAt(0)-'a';
+	public int[] getWordList() {
+		//this.wordList = this.english.toLowerCase().charAt(0)-'a';
 		return this.wordList;
 	}
 
@@ -81,11 +81,11 @@ public class Word implements InterfaceOfWord{
 		this.total = total;
 	}
 
-	public void setOffset(int offset) {
+	public void setOffset(int[] offset) {
 		this.offset = offset;
 	}
 
-	public void setWordList(int wordList) {
+	public void setWordList(int[] wordList) {
 		this.wordList = wordList;
 	}
 	// a/A 0
