@@ -48,7 +48,7 @@ public class IO implements InterfaceOfIO{
 	}
 	*/
 	public ArrayList<InterfaceOfWord> readFirst(String filename){
-		return new DomParse().DomParse();
+		return new DomParse().DomParse(filename);
 	}
 	//  we can read from each correspoding file  such as 1.txt => wordlist A
 	public InterfaceOfWordList read(String filename) {

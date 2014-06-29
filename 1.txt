@@ -1,4 +1,4 @@
-0 1606 0 0
+0 1605 0 0
 abandon v.抛弃，放弃 0 0
 abide v.遵守 0 0
 abolish v.废除，取消 0 0
@@ -178,7 +178,6 @@ buy v.买，购买 0 0
 buzz v.嗡嗡叫 0 0
 calculate v.计算，估计 0 0
 call v.叫，称为，打电话 0 0
-can v.aux.能，会，可以 0 0
 cancel v.删除，取消 0 0
 canvass v.游说 0 0
 capitalize v.大写，资本化 0 0
@@ -702,6 +701,7 @@ grieve v.使悲伤，伤心 0 0
 grin v.露齿而笑 0 0
 grind v.碾碎，磨快，折磨 0 0
 grip v.,n.紧握，吸引 0 0
+groan v.,n.呻吟 0 0
 grope v.摸索，探索 0 0
 grow v.增长，成长，种植 0 0
 growl v.,n.咆哮，嗥叫 0 0
@@ -1580,7 +1580,6 @@ whitewash v.粉刷，掩饰 0 0
 wholesale n.,v.批发 0 0
 widen v.加宽，扩大 0 0
 wield v.挥动，行使 0 0
-will v.aux.将，愿 0 0
 win v.赢得，成功 0 0
 wink v.眨眼，使眼色 0 0
 wipe v.擦，抹掉 0 0

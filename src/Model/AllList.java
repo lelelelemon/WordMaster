@@ -29,14 +29,9 @@ public class AllList implements InterfaceOfAllList{
 			this.addWordList(wordList);
 		}
 		for (int i = 0; i < allWords.size(); i++) {
-			System.out.println(allWords.size());
 			this.addWord(allWords.get(i));
 			
 		}
-		Word word1 = new Word("can", "v.aux.能，会，可以", 9);
-		Word word2 = new Word("will", "v.aux.将，愿", 9);
-		this.addWord(word1);
-		this.addWord(word2);
 		writeAllList(number, this);
 		calculateTotal();
 	}

@@ -81,7 +81,7 @@ public class StartPage{
 		//点击设置，转到设置页面，进行设置
 		set.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				for(int i=0;i<7;i++){
+				for(int i=0;i<9;i++){
 					File f = new File(i+".txt");
 					if(f.exists())
 						f.delete();

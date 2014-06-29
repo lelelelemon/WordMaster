@@ -31,7 +31,7 @@ import Model.*;
  * */
 public class DomParse {
 
-	public ArrayList<InterfaceOfWord> DomParse() {
+	public ArrayList<InterfaceOfWord> DomParse(String filename) {
 		// （1）得到DOM解析器的工厂实例
 		DocumentBuilderFactory domfac = DocumentBuilderFactory.newInstance();
 		ArrayList<InterfaceOfWord> allword = new ArrayList<InterfaceOfWord>();
@@ -41,7 +41,7 @@ public class DomParse {
 			DocumentBuilder dombuilder = domfac.newDocumentBuilder();
 			// 通过javax.xml.parsers.DocumentBuilderFactory实例的静态方法newDocumentBuilder()得到DOM解析器
 			// （3）把要解析的XML文档转化为输入流，以便DOM解析器解析它
-			InputStream is = new FileInputStream("dictionary.xml");
+			InputStream is = new FileInputStream(filename);
 			// （4）解析XML文档的输入流，得到一个Document
 			Document doc = dombuilder.parse(is);
 			// 由XML文档的输入流得到一个org.w3c.dom.Document对象，以后的处理都是对Document对象进行的
@@ -93,7 +93,6 @@ public class DomParse {
 										//System.out.println(chinArr[j]);
 
 									}
-									//System.out.println(j);
 									type = new int[j];
 									for (int n = 0; n < j; n++) {
 										if (chinArr[n].equals("n")) {
@@ -101,13 +100,10 @@ public class DomParse {
 										}
 										//v.aux
 										else if (chinArr[n].equals("v")) {
+											type[n] = 1;
 											if(chinArr[n+1].equals("aux")){
 												type[n] = 9;
-												n += 1;
-												System.out.println(chinese);
-												continue;
 											}
-											type[n] = 1;
 										}
 										else if (chinArr[n].equals("adv") || chinArr[n].equals("ad")) {
 											type[n] = 2;
@@ -129,10 +125,6 @@ public class DomParse {
 										}
 										else if (chinArr[n].equals("conj")) {
 											type[n] = 8;
-										}
-								
-										else{
-											System.out.println(chinArr[n] + " " + chinese);
 										}
 										Word word = new Word(english, chinese, type[n]);
 										allword.add(word);
@@ -156,19 +148,5 @@ public class DomParse {
 			e.printStackTrace();
 		}
 		return allword;
-	}
-
-	public static void main(String[] args) {
-		DomParse dp = new DomParse();
-		ArrayList<InterfaceOfWord> words = dp.DomParse();
-		System.out.println(words.size());
-		for(int i = 0 ; i < words.size(); i ++){
-			if(words.get(i).getWordList() == 9){
-				System.out.println("chinese is " + words.get(i).getChinese());
-				System.out.println("english is " + words.get(i).getEnglsh());
-				System.out.println("type is " + words.get(i).getWordList());
-			}
-		}
-		 
 	}
 }

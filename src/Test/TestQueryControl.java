@@ -45,7 +45,7 @@ public class TestQueryControl extends TestCase{
 		
 		context.checking(new Expectations() {
 			{
-				allowing(allList).getWordList(10);
+				allowing(allList).getWordList(1);
 				will(returnValue(wordList));
 				allowing(wordList).getSize();
 				will(returnValue(50));
@@ -88,37 +88,37 @@ public class TestQueryControl extends TestCase{
 
 	@Test
 	public void testLibraryAll() {
-		assertEquals(1000,test.getTotalWordNum("all"));
-		assertEquals(300,test.getRecitedWordNum("all"));
-		assertEquals(200,test.getRightWordNum("all"));
-		assertEquals(100,test.getWrongWordNum("all"));
-		assertEquals(0.6667,test.getRightRate("all"));
+		assertEquals(1000,test.getTotalWordNum(10));
+		assertEquals(300,test.getRecitedWordNum(10));
+		assertEquals(200,test.getRightWordNum(10));
+		assertEquals(100,test.getWrongWordNum(10));
+		assertEquals(0.6667,test.getRightRate(10));
 	}
 	
 	@Test
-	public void testLibraryK() {
-		assertEquals(50,test.getTotalWordNum("k"));
-		assertEquals(40,test.getRecitedWordNum("k"));
-		assertEquals(30,test.getRightWordNum("k"));
-		assertEquals(10,test.getWrongWordNum("k"));
-		assertEquals(0.7500,test.getRightRate("k"));
+	public void testLibrary2() {
+		assertEquals(50,test.getTotalWordNum(1));
+		assertEquals(40,test.getRecitedWordNum(1));
+		assertEquals(30,test.getRightWordNum(1));
+		assertEquals(10,test.getWrongWordNum(1));
+		assertEquals(0.7500,test.getRightRate(1));
 	}
 	
 	@Test
 	public void testEmptyAll() {
-		assertEquals(0,test2.getTotalWordNum("all"));
-		assertEquals(0,test2.getRecitedWordNum("all"));
-		assertEquals(0,test2.getRightWordNum("all"));
-		assertEquals(0,test2.getWrongWordNum("all"));
-		assertEquals(0.0000,test2.getRightRate("all"));
+		assertEquals(0,test2.getTotalWordNum(10));
+		assertEquals(0,test2.getRecitedWordNum(10));
+		assertEquals(0,test2.getRightWordNum(10));
+		assertEquals(0,test2.getWrongWordNum(10));
+		assertEquals(0.0000,test2.getRightRate(10));
 	}
 	
 	@Test
 	public void testEmptyLibrary() {
-		assertEquals(0,test2.getTotalWordNum("a"));
-		assertEquals(0,test2.getRecitedWordNum("a"));
-		assertEquals(0,test2.getRightWordNum("a"));
-		assertEquals(0,test2.getWrongWordNum("a"));
-		assertEquals(0.0000,test2.getRightRate("a"));
+		assertEquals(0,test2.getTotalWordNum(0));
+		assertEquals(0,test2.getRecitedWordNum(0));
+		assertEquals(0,test2.getRightWordNum(0));
+		assertEquals(0,test2.getWrongWordNum(0));
+		assertEquals(0.0000,test2.getRightRate(0));
 	}
 }
