@@ -99,23 +99,40 @@ public class DomParse {
 										if (chinArr[n].equals("n")) {
 											type[n] = 0;
 										}
-										if (chinArr[n].equals("v")) {
+										//v.aux
+										else if (chinArr[n].equals("v")) {
+											if(chinArr[n+1].equals("aux")){
+												type[n] = 9;
+												n += 1;
+												System.out.println(chinese);
+												continue;
+											}
 											type[n] = 1;
 										}
-										if (chinArr[n].equals("adv")) {
+										else if (chinArr[n].equals("adv") || chinArr[n].equals("ad")) {
 											type[n] = 2;
 										}
-										if (chinArr[n].equals("adj")) {
+										else if (chinArr[n].equals("adj")) {
 											type[n] = 3;
 										}
-										if (chinArr[n].equals("num")) {
+										else if (chinArr[n].equals("num")) {
 											type[n] = 4;
 										}
-										if (chinArr[n].equals("prep")) {
+										else if (chinArr[n].equals("prep")) {
 											type[n] = 5;
 										}
-										if (chinArr[n].equals("pron")) {
+										else if (chinArr[n].equals("pron")) {
 											type[n] = 6;
+										}
+										else if (chinArr[n].equals("int")) {
+											type[n] = 7;
+										}
+										else if (chinArr[n].equals("conj")) {
+											type[n] = 8;
+										}
+								
+										else{
+											System.out.println(chinArr[n] + " " + chinese);
 										}
 										Word word = new Word(english, chinese, type[n]);
 										allword.add(word);
@@ -144,11 +161,14 @@ public class DomParse {
 	public static void main(String[] args) {
 		DomParse dp = new DomParse();
 		ArrayList<InterfaceOfWord> words = dp.DomParse();
+		System.out.println(words.size());
 		for(int i = 0 ; i < words.size(); i ++){
-			System.out.println("chinese is " + words.get(i).getChinese());
-			System.out.println("english is " + words.get(i).getEnglsh());
-			System.out.println("type is " + words.get(i).getWordList());
+			if(words.get(i).getWordList() == 9){
+				System.out.println("chinese is " + words.get(i).getChinese());
+				System.out.println("english is " + words.get(i).getEnglsh());
+				System.out.println("type is " + words.get(i).getWordList());
+			}
 		}
-		
+		 
 	}
 }

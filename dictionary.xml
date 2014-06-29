@@ -2381,10 +2381,6 @@
     <chinese>n.热气球飞行运动</chinese>
   </word>
   <word>
-    <english>ball-point</english>
-    <chinese>pen</chinese>
-  </word>
-  <word>
     <english>ballroom</english>
     <chinese>n.舞厅</chinese>
   </word>
@@ -3135,10 +3131,6 @@
   <word>
     <english>bomber</english>
     <chinese>n.轰炸机</chinese>
-  </word>
-  <word>
-    <english>bona</english>
-    <chinese>fide</chinese>
   </word>
   <word>
     <english>bond</english>
@@ -4939,10 +4931,6 @@
   <word>
     <english>closed</english>
     <chinese>adj.关闭的，停业的</chinese>
-  </word>
-  <word>
-    <english>close</english>
-    <chinese>down</chinese>
   </word>
   <word>
     <english>closely</english>
@@ -7044,10 +7032,7 @@
     <english>dawn</english>
     <chinese>n.黎明，开端</chinese>
   </word>
-  <word>
-    <english>day</english>
-    <chinese>n.一天，白天</chinese>
-  </word>
+
   <word>
     <english>daybreak</english>
     <chinese>n.破晓</chinese>
@@ -7391,10 +7376,6 @@
   <word>
     <english>delay</english>
     <chinese>v.,n.耽搁，延误</chinese>
-  </word>
-  <word>
-    <english>del</english>
-    <chinese>credere</chinese>
   </word>
   <word>
     <english>delegate</english>
@@ -9229,10 +9210,6 @@
     <chinese>n.努力，尽力，成果</chinese>
   </word>
   <word>
-    <english>e.</english>
-    <chinese>g.</chinese>
-  </word>
-  <word>
     <english>egg</english>
     <chinese>n.卵，蛋，鸡蛋</chinese>
   </word>
@@ -9771,10 +9748,6 @@
   <word>
     <english>enrolment</english>
     <chinese>n.招收</chinese>
-  </word>
-  <word>
-    <english>en</english>
-    <chinese>route</chinese>
   </word>
   <word>
     <english>ensure</english>
@@ -12874,7 +12847,7 @@
   </word>
   <word>
     <english>groan</english>
-    <chinese>v,,n.呻吟</chinese>
+    <chinese>v.,n.呻吟</chinese>
   </word>
   <word>
     <english>grocer</english>
@@ -17054,7 +17027,7 @@
   </word>
   <word>
     <english>madman</english>
-    <chinese>nn.疯子</chinese>
+    <chinese>n.疯子</chinese>
   </word>
   <word>
     <english>madness</english>
@@ -17415,10 +17388,6 @@
   <word>
     <english>massive</english>
     <chinese>adj.粗大的，厚重的</chinese>
-  </word>
-  <word>
-    <english>mass</english>
-    <chinese>media</chinese>
   </word>
   <word>
     <english>mast</english>
@@ -26977,10 +26946,6 @@
     <chinese>v.压，榨，挤</chinese>
   </word>
   <word>
-    <english>s.</english>
-    <chinese>s.</chinese>
-  </word>
-  <word>
     <english>squirrel</english>
     <chinese>n.松鼠</chinese>
   </word>
@@ -28681,10 +28646,6 @@
     <chinese>n.感谢</chinese>
   </word>
   <word>
-    <english>thanksgiving</english>
-    <chinese>day</chinese>
-  </word>
-  <word>
     <english>that</english>
     <chinese>adj.那,那个</chinese>
   </word>
@@ -30107,18 +30068,6 @@
   <word>
     <english>united</english>
     <chinese>adj.联合的</chinese>
-  </word>
-  <word>
-    <english>united</english>
-    <chinese>kingdom</chinese>
-  </word>
-  <word>
-    <english>united</english>
-    <chinese>nations</chinese>
-  </word>
-  <word>
-    <english>united</english>
-    <chinese>states</chinese>
   </word>
   <word>
     <english>unity</english>

@@ -79,7 +79,7 @@ public class IO implements InterfaceOfIO{
 			}
 			while ((line=br.readLine())!=null){
 				String[] buf = line.split(" ");
-				int wordlist = buf[0].charAt(0)-'a';
+				int wordlist = wordListNumber;
 				int right = Integer.parseInt(buf[2]);
 				int total = Integer.parseInt(buf[3]);
 				Word word = new Word(buf[0],buf[1],wordlist,count);
@@ -114,10 +114,10 @@ public class IO implements InterfaceOfIO{
 				bw.write(word.getEnglsh()+" "+word.getChinese()+" "+word.getRight()+" "+word.getTotal() + "\n");
 			}
 			bw.close();
-			System.out.println("find document " + fileName);
+			//System.out.println("find document " + fileName);
 			
 		}catch(IOException exception){
-			System.out.println("cannot find document");
+			//System.out.println("cannot find document");
 		}
 		return fileName;
 	}

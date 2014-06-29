@@ -12,7 +12,7 @@ public class WordList implements InterfaceOfWordList {
 	private int right = 0;// the right number of recited words
 	private int recite = 0;// the number of recited words
 	private String fileName;// each WordList correspond to a file
-
+	private String [] listName = {"n", "v", "adv", "adj", "num", "prep", "pron", "int", "conj", "v.aux"};
 	public WordList() {
 		words = new ArrayList<Word>();
 	}
@@ -162,5 +162,7 @@ public class WordList implements InterfaceOfWordList {
 		}
 		return null;
 	}
-
+	public String getListName(int n){
+		return this.listName[n];
+	}
 }

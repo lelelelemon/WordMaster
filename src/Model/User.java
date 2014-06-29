@@ -20,9 +20,11 @@ public class User implements InterfaceOfUser{
 	public User(int number, String filename) {
 		File file = new File("0.txt");
 		if	(file.exists())
-			first = true;		
-		if(first)
+			first = false;		
+		if(first){
 			initializeFirst(number, filename);
+			System.out.println("this is the first time to initialzie");
+		}
 		else
 			initialize(number);
 
@@ -90,9 +92,9 @@ public class User implements InterfaceOfUser{
 
 	// find the word with the specific english within the alllist
 	public InterfaceOfWord search(String english) {
-		char firstChar = english.toLowerCase().charAt(0);
-		int seq = firstChar -'a';
-		WordList wordlist = (WordList) allList.getWordList(seq);
+		//char firstChar = english.toLowerCase().charAt(0);
+		//int seq = firstChar -'a';
+		WordList wordlist = (WordList) allList.getWordList(curList);
 		if (wordlist.getSize()==0)
 			return null;
 		for(int i = 0; i < wordlist.getSize();i++)

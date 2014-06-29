@@ -34,7 +34,7 @@ public class ReciteFormFrame extends JFrame {
 	 * Create the frame.
 	 */
 	
-	public ReciteFormFrame(char listName, int total, int right) {
+	public ReciteFormFrame(String listName, int total, int right) {
 		int wrong = total - right;
 		int rate = (int) (1.0 * right / total * 10000.0); // 2 digits after dot
 		

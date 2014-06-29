@@ -14,7 +14,7 @@ public class QueryControl implements QueryController {
 	@Override
 	public int getTotalWordNum(int libname) {
 		int total = 0;
-		if(libname == 7){
+		if(libname == 10){
 			total = allList.getTotal();
 		}else{
 			total = allList.getWordList(libname).getSize();
@@ -25,7 +25,7 @@ public class QueryControl implements QueryController {
 
 	public int getRecitedWordNum(int libname) {
 		int recited = 0;
-		if(libname == 7){
+		if(libname == 10){
 			recited = allList.getRecite();
 		}else{
 			recited = allList.getWordList(libname).getRecite();
@@ -36,7 +36,7 @@ public class QueryControl implements QueryController {
 	@Override
 	public int getRightWordNum(int libname) {
 		int right = 0;
-		if(libname == 7){
+		if(libname == 10){
 			right = allList.getRight();
 		}else{
 			right = allList.getWordList(libname).getRight();
@@ -47,7 +47,7 @@ public class QueryControl implements QueryController {
 	@Override
 	public int getWrongWordNum(int libname) {
 		int wrong = 0;
-		if(libname == 7){
+		if(libname == 10){
 			wrong = allList.getRecite() - allList.getRight();
 		}else{
 			wrong = allList.getWordList(libname).getRecite()-
@@ -59,9 +59,9 @@ public class QueryControl implements QueryController {
 	@Override
 	public double getRightRate(int libname) {
 		double rate = 0;
-		if(libname == 7 && (double)allList.getRecite() != 0){
+		if(libname == 10 && (double)allList.getRecite() != 0){
 			rate = (double)allList.getRight()/(double)allList.getRecite();
-		}else if(! (libname == 7)&& 
+		}else if(! (libname == 10)&& 
 				allList.getWordList(libname).getRecite() != 0){
 			rate = (double)allList.getWordList(libname).getRight()/
 					(double)allList.getWordList(libname).getRecite();

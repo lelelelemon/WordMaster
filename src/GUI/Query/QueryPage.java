@@ -34,7 +34,7 @@ public class QueryPage{
 		libname = new JTextField();
 		libname.setText("a");
 		Vector<String> charList = new Vector<String>();
-		for (int i = 0; i < 7; i++) {
+		for (int i = 0; i < 10; i++) {
 			String listName = user.getAllList().getListName(i);
 			charList.add(listName);
 		}

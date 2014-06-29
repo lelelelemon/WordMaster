@@ -69,7 +69,7 @@ public class ChooseFrame extends JFrame {
 		contentPane.setLayout(null);
 
 		Vector<String> charList = new Vector<String>();
-		for (i = 0; i < 7; i++) {
+		for (i = 0; i < 10; i++) {
 			String listName = user.getAllList().getListName(i);
 			charList.add(listName);
 		}
@@ -126,6 +126,7 @@ public class ChooseFrame extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				if (!Debug.debug) {
 					int wordListNum = getListNumber();
+				
 					int reciteNum = getReciteNumber();
 
 					if (reciteNum == 0) {
@@ -151,6 +152,7 @@ public class ChooseFrame extends JFrame {
 		btnStart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int wordListNum = getListNumber();
+				System.out.println("wordList is " + wordListNum);
 				String startWordStr = getStartWord();
 				int reciteNum = getReciteNumber();
 

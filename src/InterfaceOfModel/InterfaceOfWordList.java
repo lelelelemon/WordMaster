@@ -21,4 +21,5 @@ public interface InterfaceOfWordList {
 	public InterfaceOfWord getNextWord();
 	public InterfaceOfWord getCurWord(int i);
 	public boolean equals(Object b);
+	public String getListName(int n);
 }

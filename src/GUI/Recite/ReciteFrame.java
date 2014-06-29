@@ -90,9 +90,9 @@ public class ReciteFrame extends JFrame {
 						JOptionPane.showMessageDialog(null, "You've finished this list!");
 					}
 					int wordListIndex = task.getWordList().getWordList();
-					char wordListChar = (char) ('A' + wordListIndex);
+					String wordListString = task.getWordList().getListName(wordListIndex);
 					
-					ReciteFormFrame formFrame = new ReciteFormFrame(wordListChar, 
+					ReciteFormFrame formFrame = new ReciteFormFrame(wordListString, 
 							pastNum, rightNum);
 					setVisible(false);
 					formFrame.setVisible(true);
