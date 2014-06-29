@@ -84,13 +84,13 @@ public class UserTest {
 		user.setCurList(0);
 		user.setStart(0);
 		Word result;
-		result = user.search("apple");
+		result = (Word) user.search("apple");
 		assertTrue("Test Failed",result.equals(wordA));
-		result = user.search("after");
+		result = (Word) user.search("after");
 		assertTrue("Test Failed",result==null);
 		user.setStart(0);
 		user.setCurList(1);
-		result = user.search("banana");
+		result = (Word) user.search("banana");
 		assertTrue("Test Failed",result.equals(wordB));
 
 

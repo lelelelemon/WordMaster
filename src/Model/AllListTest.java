@@ -6,19 +6,21 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
+import InterfaceOfModel.InterfaceOfWord;
+
 public class AllListTest {
 
 	@Test
 	public void testInitializeFirst() {
 		Word wordA = new Word("apple","Æ»¹û",0);
 		Word wordB = new Word("banana","Ïã½¶",1);
-		ArrayList<Word> allWords = new ArrayList();
+		ArrayList<InterfaceOfWord> allWords = new ArrayList<InterfaceOfWord>();
 		allWords.add(wordA);
 		allWords.add(wordB);
 		AllList allList = new AllList();
-		allList.initializeFirst(26, allWords);
-		WordList wordListA = allList.getWordList(0);
-		WordList wordListB = allList.getWordList(1);
+		allList.initializeFirst(10, allWords);
+		WordList wordListA = (WordList) allList.getWordList(0);
+		WordList wordListB = (WordList) allList.getWordList(1);
 		assertTrue("Test Failed",wordListA.getNextWord().equals(wordA));
 		assertTrue("Test Failed",wordListB.getNextWord().equals(wordB));
 		assertTrue("Test Failed",true);
@@ -29,9 +31,9 @@ public class AllListTest {
 		Word wordA = new Word("apple","Æ»¹û",0);
 		Word wordB = new Word("banana","Ïã½¶",1);
 		AllList allList = new AllList();
-		allList.initialize(26);
-		WordList wordListA = allList.getWordList(0);
-		WordList wordListB = allList.getWordList(1);
+		allList.initialize(10);
+		WordList wordListA = (WordList) allList.getWordList(0);
+		WordList wordListB = (WordList) allList.getWordList(1);
 		assertTrue("Test Failed",wordListA.getNextWord().equals(wordA));
 		assertTrue("Test Failed",wordListB.getNextWord().equals(wordB));
 	}
@@ -50,11 +52,11 @@ public class AllListTest {
 		wordB.setRight(0);
 		wordA.setTotal(2);
 		wordB.setTotal(2);
-		ArrayList<Word> allWords = new ArrayList<Word>();
+		ArrayList<InterfaceOfWord> allWords = new ArrayList<InterfaceOfWord>();
 		allWords.add(wordA);
 		allWords.add(wordB);
 		AllList allList = new AllList();
-		allList.initializeFirst(26, allWords);
+		allList.initializeFirst(10, allWords);
 		assertTrue("Test Failed",allList.getRight()==1);
 
 	}
@@ -67,11 +69,11 @@ public class AllListTest {
 		wordB.setRight(0);
 		wordA.setTotal(2);
 		wordB.setTotal(2);
-		ArrayList<Word> allWords = new ArrayList<Word>();
+		ArrayList<InterfaceOfWord> allWords = new ArrayList<InterfaceOfWord>();
 		allWords.add(wordA);
 		allWords.add(wordB);
 		AllList allList = new AllList();
-		allList.initializeFirst(26, allWords);
+		allList.initializeFirst(10, allWords);
 		assertTrue("Test Failed",allList.getRecite()==2);
 	}
 
@@ -83,11 +85,11 @@ public class AllListTest {
 		wordB.setRight(0);
 		wordA.setTotal(2);
 		wordB.setTotal(2);
-		ArrayList<Word> allWords = new ArrayList<Word>();
+		ArrayList<InterfaceOfWord> allWords = new ArrayList<InterfaceOfWord>();
 		allWords.add(wordA);
 		allWords.add(wordB);
 		AllList allList = new AllList();
-		allList.initializeFirst(26, allWords);
+		allList.initializeFirst(10, allWords);
 		assertTrue("Test Failed",allList.getTotal()==2);
 	}
 
@@ -110,11 +112,11 @@ public class AllListTest {
 		wordB.setRight(0);
 		wordA.setTotal(2);
 		wordB.setTotal(2);
-		ArrayList<Word> allWords = new ArrayList<Word>();
+		ArrayList<InterfaceOfWord> allWords = new ArrayList<InterfaceOfWord>();
 		allWords.add(wordA);
 		allWords.add(wordB);
 		AllList allList = new AllList();
-		allList.initializeFirst(26, allWords);
+		allList.initializeFirst(10, allWords);
 		assertTrue("Test Failed",allList.getTotal()==2);
 	}
 
@@ -126,11 +128,11 @@ public class AllListTest {
 		wordB.setRight(0);
 		wordA.setTotal(2);
 		wordB.setTotal(2);
-		ArrayList<Word> allWords = new ArrayList<Word>();
+		ArrayList<InterfaceOfWord> allWords = new ArrayList<InterfaceOfWord>();
 		allWords.add(wordA);
 		allWords.add(wordB);
 		AllList allList = new AllList();
-		allList.initializeFirst(26, allWords);
+		allList.initializeFirst(10, allWords);
 		assertTrue("Test Failed",allList.getRecite()==2);
 	}
 
@@ -142,11 +144,11 @@ public class AllListTest {
 		wordB.setRight(0);
 		wordA.setTotal(2);
 		wordB.setTotal(2);
-		ArrayList<Word> allWords = new ArrayList<Word>();
+		ArrayList<InterfaceOfWord> allWords = new ArrayList<InterfaceOfWord>();
 		allWords.add(wordA);
 		allWords.add(wordB);
 		AllList allList = new AllList();
-		allList.initializeFirst(26, allWords);
+		allList.initializeFirst(10, allWords);
 		assertTrue("Test Failed",allList.getRight()==1);
 	}
 
@@ -154,13 +156,13 @@ public class AllListTest {
 	public void testAddWordList() {
 		Word wordA = new Word("apple","Æ»¹û",0);
 		Word wordB = new Word("banana","Ïã½¶",1);
-		ArrayList<Word> allWords = new ArrayList();
+		ArrayList<InterfaceOfWord> allWords = new ArrayList();
 		allWords.add(wordA);
 		allWords.add(wordB);
 		AllList allList = new AllList();
-		allList.initializeFirst(26, allWords);
-		WordList wordListA = allList.getWordList(0);
-		WordList wordListB = allList.getWordList(1);
+		allList.initializeFirst(10, allWords);
+		WordList wordListA = (WordList) allList.getWordList(0);
+		WordList wordListB = (WordList) allList.getWordList(1);
 		assertTrue("Test Failed",wordListA.getNextWord().equals(wordA));
 		assertTrue("Test Failed",wordListB.getNextWord().equals(wordB));
 		assertTrue("Test Failed",true);
@@ -170,13 +172,13 @@ public class AllListTest {
 	public void testAddWord() {
 		Word wordA = new Word("apple","Æ»¹û",0);
 		Word wordB = new Word("banana","Ïã½¶",1);
-		ArrayList<Word> allWords = new ArrayList();
+		ArrayList<InterfaceOfWord> allWords = new ArrayList();
 		allWords.add(wordA);
 		allWords.add(wordB);
 		AllList allList = new AllList();
-		allList.initializeFirst(26, allWords);
-		WordList wordListA = allList.getWordList(0);
-		WordList wordListB = allList.getWordList(1);
+		allList.initializeFirst(10, allWords);
+		WordList wordListA = (WordList) allList.getWordList(0);
+		WordList wordListB = (WordList) allList.getWordList(1);
 		assertTrue("Test Failed",wordListA.getNextWord().equals(wordA));
 		assertTrue("Test Failed",wordListB.getNextWord().equals(wordB));
 		assertTrue("Test Failed",true);
@@ -186,13 +188,13 @@ public class AllListTest {
 	public void testGetWordList() {
 		Word wordA = new Word("apple","Æ»¹û",0);
 		Word wordB = new Word("banana","Ïã½¶",1);
-		ArrayList<Word> allWords = new ArrayList();
+		ArrayList<InterfaceOfWord> allWords = new ArrayList<InterfaceOfWord>();
 		allWords.add(wordA);
 		allWords.add(wordB);
 		AllList allList = new AllList();
-		allList.initializeFirst(26, allWords);
-		WordList wordListA = allList.getWordList(0);
-		WordList wordListB = allList.getWordList(1);
+		allList.initializeFirst(10, allWords);
+		WordList wordListA = (WordList) allList.getWordList(0);
+		WordList wordListB = (WordList) allList.getWordList(1);
 		assertTrue("Test Failed",wordListA.getNextWord().equals(wordA));
 		assertTrue("Test Failed",wordListB.getNextWord().equals(wordB));
 		assertTrue("Test Failed",true);

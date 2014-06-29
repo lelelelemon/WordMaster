@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
+import InterfaceOfModel.InterfaceOfWord;
+
 public class IOTest {
 
 	@Test
@@ -16,7 +18,7 @@ public class IOTest {
 		expectedAllWords.add(wordA);
 		expectedAllWords.add(wordB);
 		IO io = new IO();
-		ArrayList<Word> allWords = io.readFirst("input.txt");
+		ArrayList<InterfaceOfWord> allWords = io.readFirst("input.txt");
 		assertTrue("Test Failed",allWords.get(0).equals(wordA));
 		assertTrue("Test Failed",allWords.get(0).equals(wordA));
 		assertTrue("Test Failed",allWords.size()==expectedAllWords.size());
@@ -34,7 +36,7 @@ public class IOTest {
 		expectedWordList.calculateRecite();
 		expectedWordList.calculateRight();
 		IO io = new IO();
-		WordList wordList = io.read("0.txt");
+		WordList wordList = (WordList) io.read("0.txt");
 		assertTrue("Test Failed",wordList.equals(expectedWordList));
 
 	}
