@@ -32,6 +32,7 @@ public class AllList implements InterfaceOfAllList{
 			this.addWord(allWords.get(i));
 		}
 		writeAllList(number, this);
+		System.out.println("hl");
 		calculateTotal();
 	}
 

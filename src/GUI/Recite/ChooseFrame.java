@@ -53,8 +53,11 @@ public class ChooseFrame extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-
-	public ChooseFrame() {
+	public ChooseFrame(){
+		
+	}
+	public ChooseFrame(InterfaceOfUser us) {
+		this.user = us;
 		int i;
 
 		setResizable(false);
@@ -66,9 +69,9 @@ public class ChooseFrame extends JFrame {
 		contentPane.setLayout(null);
 
 		Vector<String> charList = new Vector<String>();
-		for (i = 0; i < 26; i++) {
-			char c = (char) ('A' + i);
-			charList.add("" + c);
+		for (i = 0; i < 7; i++) {
+			String listName = user.getAllList().getListName(i);
+			charList.add(listName);
 		}
 		comboBox = new JComboBox(charList);
 		comboBox.setBounds(6, 6, 360, 27);
@@ -181,14 +184,15 @@ public class ChooseFrame extends JFrame {
 		});
 		btnBack.setBounds(249, 178, 117, 29);
 		contentPane.add(btnBack);
+		this.setVisible(true);
 	}
-
+/*
 	public ChooseFrame(InterfaceOfUser user) {
 		this();
 		this.user = user;
 		this.setVisible(true);
 	}
-
+*/
 	/**
 	 * Help methods
 	 */

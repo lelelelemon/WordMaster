@@ -3,6 +3,7 @@ package GUI.Query;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Vector;
 
 import javax.swing.*;
 
@@ -23,16 +24,23 @@ public class QueryPage{
 	private JButton confirm;//确认按钮
 	private JButton exit;
 	private InterfaceOfUser user;
-	
+	private JComboBox	comboBox;
 	public QueryPage(final InterfaceOfUser user){
 		//初始化标签
-		label1 = new JLabel("请输入词库名（字母a-z）：");
+		label1 = new JLabel("请选择词库名：");
 		label2 = new JLabel("请选择统计数据的表现形式：");
 		
 		//初始化输入框
 		libname = new JTextField();
 		libname.setText("a");
-		
+		Vector<String> charList = new Vector<String>();
+		for (int i = 0; i < 7; i++) {
+			String listName = user.getAllList().getListName(i);
+			charList.add(listName);
+		}
+		charList.add("all");
+		comboBox = new JComboBox(charList);
+		comboBox.setBounds(6, 6, 360, 27);
 		//初始化单选框
 		form = new JRadioButton("表格");
 		pie = new JRadioButton("饼图");
@@ -65,11 +73,13 @@ public class QueryPage{
 		
 		frame.setLayout(new GridLayout(3,2));
 		frame.add(label1);
-		frame.add(libname);
+		//frame.add(libname);
+		frame.add(comboBox);
 		frame.add(label2);
 		frame.add(group);
 		frame.add(confirm);
 		frame.add(exit);
+		
 		
 		//添加事件
 		//点击确认,判断词库名是否符合格式，不符合则提示，符合则根据用户输入显示统计数据
@@ -93,12 +103,15 @@ public class QueryPage{
 					}catch (Exception e) {  
                         throw new Exception();  
                     }
+					/*
 					if(name.length()>1){
 						throw new Exception("词库名应为一个字母！");
 					}else if(name.charAt(0)<'a' || name.charAt(0)>'z'){
 						throw new Exception("词库名应为a-z！");
 					}
-					new Gui(user).getChart(name, type);; 
+					*/
+					int choosenListIndex = comboBox.getSelectedIndex();				
+					new Gui(user).getChart(choosenListIndex, type);; 
 				} catch (Exception ex) {
 					if(ex.getMessage().equals("String index out of range: 0")){
 						JOptionPane.showMessageDialog(frame, "词库名不得为空！",

@@ -17,4 +17,5 @@ public interface InterfaceOfAllList {
 	public void addWordList(InterfaceOfWordList wordList);
 	public void addWord(InterfaceOfWord word);
 	public InterfaceOfWordList getWordList(int i);
+	public String getListName(int n);
 }

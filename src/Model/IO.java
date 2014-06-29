@@ -105,7 +105,6 @@ public class IO implements InterfaceOfIO{
 		 * english chinese right total		
 		 */
 		String fileName = wordList.getWordList()+".txt";
-		
 		try{
 			BufferedWriter bw = new BufferedWriter(new FileWriter(fileName));
 			int size = wordList.getSize();
@@ -115,8 +114,10 @@ public class IO implements InterfaceOfIO{
 				bw.write(word.getEnglsh()+" "+word.getChinese()+" "+word.getRight()+" "+word.getTotal() + "\n");
 			}
 			bw.close();
-		}catch(IOException exception){
+			System.out.println("find document " + fileName);
 			
+		}catch(IOException exception){
+			System.out.println("cannot find document");
 		}
 		return fileName;
 	}

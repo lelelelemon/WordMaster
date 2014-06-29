@@ -12,59 +12,59 @@ public class QueryControl implements QueryController {
 	}
 	
 	@Override
-	public int getTotalWordNum(String libname) {
+	public int getTotalWordNum(int libname) {
 		int total = 0;
-		if(libname.equals("all")){
+		if(libname == 7){
 			total = allList.getTotal();
 		}else{
-			total = allList.getWordList((int)(libname.charAt(0)-'a')).getSize();
+			total = allList.getWordList(libname).getSize();
+			//total = allList.getWordList((int)(libname.charAt(0)-'a')).getSize();
 		}
 		return total;
 	}
 
-	@Override
-	public int getRecitedWordNum(String libname) {
+	public int getRecitedWordNum(int libname) {
 		int recited = 0;
-		if(libname.equals("all")){
+		if(libname == 7){
 			recited = allList.getRecite();
 		}else{
-			recited = allList.getWordList((int)(libname.charAt(0)-'a')).getRecite();
+			recited = allList.getWordList(libname).getRecite();
 		}
 		return recited;
 	}
 
 	@Override
-	public int getRightWordNum(String libname) {
+	public int getRightWordNum(int libname) {
 		int right = 0;
-		if(libname.equals("all")){
+		if(libname == 7){
 			right = allList.getRight();
 		}else{
-			right = allList.getWordList((int)(libname.charAt(0)-'a')).getRight();
+			right = allList.getWordList(libname).getRight();
 		}
 		return right;
 	}
 
 	@Override
-	public int getWrongWordNum(String libname) {
+	public int getWrongWordNum(int libname) {
 		int wrong = 0;
-		if(libname.equals("all")){
+		if(libname == 7){
 			wrong = allList.getRecite() - allList.getRight();
 		}else{
-			wrong = allList.getWordList((int)(libname.charAt(0)-'a')).getRecite()-
-					allList.getWordList((int)(libname.charAt(0)-'a')).getRight();
+			wrong = allList.getWordList(libname).getRecite()-
+					allList.getWordList(libname).getRight();
 		}
 		return wrong;
 	}
 
 	@Override
-	public double getRightRate(String libname) {
+	public double getRightRate(int libname) {
 		double rate = 0;
-		if(libname.equals("all") && (double)allList.getRecite() != 0){
+		if(libname == 7 && (double)allList.getRecite() != 0){
 			rate = (double)allList.getRight()/(double)allList.getRecite();
-		}else if(!libname.equals("all") && 
-				allList.getWordList((int)(libname.charAt(0)-'a')).getRecite() != 0){
-			rate = (double)allList.getWordList((int)(libname.charAt(0)-'a')).getRight()/
-					(double)allList.getWordList((int)(libname.charAt(0)-'a')).getRecite();
+		}else if(! (libname == 7)&& 
+				allList.getWordList(libname).getRecite() != 0){
+			rate = (double)allList.getWordList(libname).getRight()/
+					(double)allList.getWordList(libname).getRecite();
 		}
 		
 		//Àƒ…·ŒÂ»Î

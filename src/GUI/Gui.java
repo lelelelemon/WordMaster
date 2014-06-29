@@ -41,7 +41,7 @@ public class Gui {
 	}
 	
 	//生成图表
-	public void getChart(String libname, String type){
+	public void getChart(int libname, String type){
 		switch (type){
 		case "form":
 			getForm(libname);
@@ -56,7 +56,7 @@ public class Gui {
 	}
 	
 	//生成表格
-	private void getForm(String libname) {
+	private void getForm(int libname) {
 		//获取数据
 		int total = statics.getTotalWordNum(libname); 
 		int recited = statics.getRecitedWordNum(libname);
@@ -91,7 +91,7 @@ public class Gui {
 	}
 	
 	//生成饼图
-	private void getPie(String libname) {
+	private void getPie(int libname) {
 		//获取数据
 		//当前词库
 		int total = statics.getTotalWordNum(libname); 
@@ -99,10 +99,10 @@ public class Gui {
 		int right = statics.getRightWordNum(libname);
 		int wrong = statics.getWrongWordNum(libname);
 		//全部词库
-		int alltotal = statics.getTotalWordNum("all"); 
-		int allrecited = statics.getRecitedWordNum("all");
-		int allright = statics.getRightWordNum("all");
-		int allwrong = statics.getWrongWordNum("all");
+		int alltotal = statics.getTotalWordNum(7); 
+		int allrecited = statics.getRecitedWordNum(7);
+		int allright = statics.getRightWordNum(7);
+		int allwrong = statics.getWrongWordNum(7);
 //		int total = 50;
 //		int recited = 30;
 //		int right = 20;
@@ -173,14 +173,14 @@ public class Gui {
 	}
 	
 	//生成柱状图
-	private void getBar(String libname) {
+	private void getBar(int libname) {
 		//获取数据
 		//当前词库 
 		int recited = statics.getRecitedWordNum(libname);
 		double rate = statics.getRightRate(libname);
 		//全部词库
-		int allrecited = statics.getRecitedWordNum("all");
-		double allrate = statics.getRightRate("all");
+		int allrecited = statics.getRecitedWordNum(7);
+		double allrate = statics.getRightRate(7);
 //		int recited = 30;
 //		double rate = 0.6667;
 //		int allrecited = 440;
