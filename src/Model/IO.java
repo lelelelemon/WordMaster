@@ -16,7 +16,7 @@ import InterfaceOfModel.*;
 
 public class IO implements InterfaceOfIO{
 	// read all the word in to an arraylist of Word
-	
+	/*
 	public ArrayList<InterfaceOfWord> readFirst(String filename){
 		
 		ArrayList<InterfaceOfWord> arrayList = new ArrayList<InterfaceOfWord>();
@@ -46,8 +46,10 @@ public class IO implements InterfaceOfIO{
 		return arrayList;
 	
 	}
-	
-
+	*/
+	public ArrayList<InterfaceOfWord> readFirst(String filename){
+		return new DomParse().DomParse();
+	}
 	//  we can read from each correspoding file  such as 1.txt => wordlist A
 	public InterfaceOfWordList read(String filename) {
 		/* offset size right recite

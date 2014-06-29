@@ -10,6 +10,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+
 //下面主要是org.xml.sax包的类
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -17,6 +18,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import InterfaceOfModel.InterfaceOfWord;
 import Model.*;
 
 /* 0 - n
@@ -25,12 +27,14 @@ import Model.*;
  * 3 - adj
  * 4 - num
  * 5 - prep
+ * 6 - pron
  * */
 public class DomParse {
 
-	public DomParse() {
+	public ArrayList<InterfaceOfWord> DomParse() {
 		// （1）得到DOM解析器的工厂实例
 		DocumentBuilderFactory domfac = DocumentBuilderFactory.newInstance();
+		ArrayList<InterfaceOfWord> allword = new ArrayList<InterfaceOfWord>();
 		// 得到javax.xml.parsers.DocumentBuilderFactory;类的实例就是我们要的解析器工厂
 		try {
 			// （2）从DOM工厂获得DOM解析器
@@ -58,19 +62,65 @@ public class DomParse {
 						// System.out.println(email);
 						// 注意，节点的属性也是它的子节点。它的节点类型也是Node.ELEMENT_NODE
 						// （8）轮循子节点
+						String english = null;
+						String chinese = null;
 						for (Node node = book.getFirstChild(); node != null; node = node
 								.getNextSibling()) {
-							String english, chinese, type;
+							
+							int[] type;
 							if (node.getNodeType() == Node.ELEMENT_NODE) {
 								if (node.getNodeName().equals("english")) {
 									// String name=node.getNodeValue();
 									english = node.getFirstChild()
 											.getNodeValue();
-									
+
 								}
+								int j = 0;
+								String chinArr[] = null;
 								if (node.getNodeName().equals("chinese")) {
 									chinese = node.getFirstChild()
 											.getNodeValue();
+									chinArr = chinese.split("[.]");
+									for (j = 0; j < chinArr.length; j++) {
+										if (chinArr[j].length() == 0)
+											break;
+										if (chinArr[j].charAt(0) != 44)
+											if (chinArr[j].charAt(0) > 122
+													|| chinArr[j].charAt(0) < 97)
+												break;
+										chinArr[j] = chinArr[j]
+												.replace(",", "");
+										//System.out.println(chinArr[j]);
+
+									}
+									//System.out.println(j);
+									type = new int[j];
+									for (int n = 0; n < j; n++) {
+										if (chinArr[n].equals("n")) {
+											type[n] = 0;
+										}
+										if (chinArr[n].equals("v")) {
+											type[n] = 1;
+										}
+										if (chinArr[n].equals("adv")) {
+											type[n] = 2;
+										}
+										if (chinArr[n].equals("adj")) {
+											type[n] = 3;
+										}
+										if (chinArr[n].equals("num")) {
+											type[n] = 4;
+										}
+										if (chinArr[n].equals("prep")) {
+											type[n] = 5;
+										}
+										if (chinArr[n].equals("pron")) {
+											type[n] = 6;
+										}
+										Word word = new Word(english, chinese, type[n]);
+										allword.add(word);
+										//System.out.println("type is " + type[n]);
+									}
 									
 								}
 
@@ -88,9 +138,17 @@ public class DomParse {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		return allword;
 	}
 
 	public static void main(String[] args) {
-		new DomParse();
+		DomParse dp = new DomParse();
+		ArrayList<InterfaceOfWord> words = dp.DomParse();
+		for(int i = 0 ; i < words.size(); i ++){
+			System.out.println("chinese is " + words.get(i).getChinese());
+			System.out.println("english is " + words.get(i).getEnglsh());
+			System.out.println("type is " + words.get(i).getWordList());
+		}
+		
 	}
 }

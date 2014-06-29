@@ -9,7 +9,7 @@ public class AllList implements InterfaceOfAllList{
 	private int right = 0;
 	private int recite = 0; // the recited words 
 	private int total; // denote the total number of words 
-	private String [] listName;
+	private String [] listName = {"n", "v", "adv", "adj", "num", "prep", "pron"};
 
 	public AllList() {
 		wordLists = new ArrayList<WordList>();
@@ -132,7 +132,9 @@ public class AllList implements InterfaceOfAllList{
 	public InterfaceOfWordList getWordList(int i) {
 		return this.wordLists.get(i);
 	}
-	
+	public String getListName(int n){
+		return this.listName[n];
+	}
 	public boolean equals(Object b){
 		AllList allList = (AllList)b;
 		for (int i=0; i<this.wordLists.size(); i++){
